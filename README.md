@@ -30,24 +30,24 @@ In legitimate new Seagate drives, these values should be nearly identical. A sig
 
 #### Using Pre-built Image (Be aware of the risks!)
 ```bash
-docker pull ghcr.io/gamestailer94/farm-check:latest
+docker pull ghcr.io/therealdevkat/farm-check:latest
 # Check a single drive
-docker run --rm --privileged -v /dev:/dev ghcr.io/gamestailer94/farm-check:latest /dev/sdX
+docker run --rm --privileged -v /dev:/dev ghcr.io/therealdevkat/farm-check:latest /dev/sdX
 
 # Check multiple drives
-docker run --rm --privileged -v /dev:/dev ghcr.io/gamestailer94/farm-check:latest /dev/sda /dev/sdb
+docker run --rm --privileged -v /dev:/dev ghcr.io/therealdevkat/farm-check:latest /dev/sda /dev/sdb
 
 # Check all drives
-docker run --rm --privileged -v /dev:/dev ghcr.io/gamestailer94/farm-check:latest ALL
+docker run --rm --privileged -v /dev:/dev ghcr.io/therealdevkat/farm-check:latest ALL
 
 # Specify device type (see smartctl(8) for available types, might be needed for some NAS Systems)
-docker run --rm --privileged -v /dev:/dev ghcr.io/gamestailer94/farm-check:latest -d sat /dev/sdX
+docker run --rm --privileged -v /dev:/dev ghcr.io/therealdevkat/farm-check:latest -d sat /dev/sdX
 ```
 Replace `/dev/sdX` with your drive's device path (e.g., `/dev/sda`).
 
 #### Building Locally
 ```bash
-git clone https://github.com/gamestailer94/farm-check.git
+git clone https://github.com/therealdevkat/farm-check.git
 cd farm-check
 docker build -t farm-check .
 docker run --rm --privileged -v /dev:/dev farm-check /dev/sdX
@@ -116,7 +116,7 @@ The tool outputs:
 
 **Q: The drives on my QNAP NAS are not detected!**
 
-**A:** Add `-d sat` to the command, see [#13](https://github.com/gamestailer94/farm-check/issues/13), [#5](https://github.com/gamestailer94/farm-check/issues/5)
+**A:** Add `-d sat` to the command, see [#13](https://github.com/therealdevkat/farm-check/issues/13), [#5](https://github.com/therealdevkat/farm-check/issues/5)
 
 **Q: Why does it say N/A in Model Family?**
 
